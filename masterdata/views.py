@@ -31,7 +31,7 @@ class UserListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['username'] =  self.request.POST.get('username','')
+        context['username'] =  self.request.POST.get('username','') or self.request.GET.get('username','')
         return context
 
     def post(self, request, *args, **kwargs):
