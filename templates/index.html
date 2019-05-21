@@ -46,7 +46,7 @@
       {% if page_obj.number == i %}
         <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
       {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
+        <li><a href="?page={{ i }}&username={{username}}">{{ i }}</a></li>
       {% endif %}
     {% endfor %}
     {% if page_obj.has_next %}

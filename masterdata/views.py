@@ -19,10 +19,12 @@ class UserListView(ListView):
 
 
     def get_queryset(self,*args, **kwargs):
-        # import ipdb; ipdb.set_trace()
         if  self.request.POST.get('username'):
             return User.objects.filter(email= self.request.POST.get('username'))
-        return User.objects.all()
+        elif self.request.GET.get('username'):
+            return User.objects.filter(email= self.request.GET.get('username'))
+        else:
+            return User.objects.all()
 
 
 
